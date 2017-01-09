@@ -1,4 +1,4 @@
-package igor.project;
+package igor.project.entities;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class Type {
     @Column(name = "Type_id", unique = true, nullable = false, precision = 5)
     private long id;
 
-    @Column(name = "Type_name", nullable = false, precision = 5)
+    @Column(name = "Type_name", unique = true, nullable = false, precision = 5)
     private String name;
 
 //    @OneToMany(mappedBy = "type")

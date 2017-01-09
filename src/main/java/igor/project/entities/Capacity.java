@@ -1,10 +1,11 @@
-package igor.project;
+package igor.project.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Capacities")
-public class Capacity {
+public class Capacity implements Serializable{
 
     @Id
     @ManyToOne
@@ -48,5 +49,24 @@ public class Capacity {
 
     public void setCapacity(long capacity) {
         this.capacity = capacity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Capacity capacity = (Capacity) o;
+
+        if (!type.equals(capacity.type)) return false;
+        return port.equals(capacity.port);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = type.hashCode();
+        result = 31 * result + port.hashCode();
+        return result;
     }
 }

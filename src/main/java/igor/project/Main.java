@@ -1,23 +1,19 @@
 package igor.project;
 
+//import igor.project.shell.Shell;
+import igor.project.shell.Shell;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
+
+        import java.io.IOException;
 
 public class Main
 {
-    public static void main( String[] args ) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-
-        Type type = new Type("liquid");
-        session.saveOrUpdate(type);
-        Query query = session.createQuery("FROM Type WHERE type_id = 10");
-        java.util.List list = query.list();
-        Type output = (Type) list.get(0);
-        System.out.println(output.getName());
-
-        session.getTransaction().commit();
-        session.close();{
-        }
+    public static void main( String[] args ) throws IOException {
+        //Open session and create a shell
+        Shell shell = new Shell(HibernateUtil.getSessionFactory().openSession());
+        // Execute shell loop
+        shell.execute();
+        // Close connections before finishing
+        HibernateUtil.shutdown();
     }
 }

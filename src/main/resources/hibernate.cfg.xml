@@ -16,19 +16,19 @@
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
 
         <!-- Print executed SQL to stdout -->
-        <property name="show_sql">true</property>
+        <property name="show_sql">false</property>
 
         <!-- Drop and re-create all database on startup -->
+        <!--property name="hibernate.hbm2ddl.auto">create-drop</property-->
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <!--<property name="hibernate.hbm2ddl.auto">create-drop</property>-->
 
         <!-- Annotated entity classes -->
-        <mapping class="igor.project.Type"/>
-        <mapping class="igor.project.Product"/>
-        <mapping class="igor.project.Port"/>
-        <mapping class="igor.project.Company"/>
-        <mapping class="igor.project.Shipment"/>
-        <mapping class="igor.project.Capacity"/>
+        <mapping class="igor.project.entities.Type"/>
+        <mapping class="igor.project.entities.Product"/>
+        <mapping class="igor.project.entities.Port"/>
+        <mapping class="igor.project.entities.Company"/>
+        <mapping class="igor.project.entities.Shipment"/>
+        <mapping class="igor.project.entities.Capacity"/>
 
     </session-factory>
 </hibernate-configuration>

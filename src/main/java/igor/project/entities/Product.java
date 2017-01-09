@@ -1,4 +1,4 @@
-package igor.project;
+package igor.project.entities;
 
 import javax.persistence.*;
 
@@ -8,10 +8,10 @@ public class Product {
 
     @Id
     @GeneratedValue
-    @Column(name = "Product_id", unique = true, nullable = false, precision = 5)
+    @Column(name = "id", unique = true, nullable = false, precision = 5)
     private long id;
 
-    @Column(name = "product_name", nullable = false, length = 30)
+    @Column(name = "product_name", unique = true, nullable = false, length = 30)
     private String name;
 
 //    @Column(name = "Type", nullable = false, precision = 5)
